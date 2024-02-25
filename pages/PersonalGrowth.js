@@ -13,20 +13,12 @@ export default function PagePersonalGrowth() {
     // Filter data by category, temporary, use category "Application"
     // change back to "Personal Growth" later
     const personalGrowthData = data.filter((item) => item.category === "Application")
-    // reverse
     personalGrowthData.reverse()
 
-
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const page = parseInt(urlParams.get('page')) || 1;
-    //
-    // const StartIndex = (page - 1) * 6;
-    // const EndIndex = page * 6;
     const router = useRouter()
     const page = parseInt(router.query.page) || 1;
     const StartIndex = (page - 1) * 6;
     const EndIndex = page * 6;
-
 
     return (
     <>
@@ -51,7 +43,7 @@ export default function PagePersonalGrowth() {
                                       <div className="card-image mb-20">
                                           <Link className="post-type" href="#" />
                                           <Link href={`/blog/${item.id}`}>
-                                              <img src={`/assets/imgs/page/healthy/${item.img}`} alt="Genz" />
+                                              <img src={`/assets/imgs/page/technology/${item.img}`} alt="Genz" />
                                           </Link>
                                       </div>
                                       <div className="card-info">
