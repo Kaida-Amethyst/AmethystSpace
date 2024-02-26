@@ -4,15 +4,12 @@ import Layout from "@/components/layout/Layout"
 import Pagination from "@/components/elements/Pagination"
 import PageHeader1 from "@/components/elements/PageHeader1"
 import SidebarBottom from "@/components/sections/SidebarBottom"
-// import data from "@/utils/blogData"
 import data from "@/utils/MyAllBlogsData"
 import { useRouter } from "next/router"
 
 export default function PagePersonalGrowth() {
     
-    // Filter data by category, temporary, use category "Application"
-    // change back to "Personal Growth" later
-    const personalGrowthData = data.filter((item) => item.category === "Application")
+    const personalGrowthData = data.filter((item) => item.category === "PersonalGrowth")
     personalGrowthData.reverse()
 
     const router = useRouter()
@@ -34,6 +31,7 @@ export default function PagePersonalGrowth() {
                   <PageHeader1
                       title={'个人成长'}
                       des={'Become a better people.'}
+                      blogCount={personalGrowthData.length}
                   />
                   <div className="mt-50 mb-50">
                       <div className="row mt-50 mb-10">
@@ -43,14 +41,15 @@ export default function PagePersonalGrowth() {
                                       <div className="card-image mb-20">
                                           <Link className="post-type" href="#" />
                                           <Link href={`/blog/${item.id}`}>
-                                              <img src={`/assets/imgs/page/technology/${item.img}`} alt="Genz" />
+                                              <img src={`/assets/imgs/Cover/${item.img}`} alt="Genz" />
                                           </Link>
                                       </div>
                                       <div className="card-info">
                                           <div className="row">
                                               <div className="col-7">
-                                                  <Link className="color-gray-700 text-sm" href="/blog-archive">#Travel</Link>
-                                                  <Link className="color-gray-700 text-sm" href="/blog-archive">#Lifestyle</Link>
+                                                {item.tags.map((tag, i) => (
+                                                    <Link key={i} className="color-gray-700 text-sm" href="#">#{tag} </Link>
+                                                ))}
                                               </div>
                                               <div className="col-5 text-end"><span className="color-gray-700 text-sm timeread">3 mins read</span></div>
                                           </div><Link href={`/blog/${item.id}`}>
@@ -64,7 +63,7 @@ export default function PagePersonalGrowth() {
                                                       </div>
                                                   </div>
                                               </div>
-                                              <div className="col-5 text-end"><Link className="readmore color-gray-500 text-sm" href={`/blog/${item.id}`}><span>Read more</span></Link></div>
+                                              <div className="col-5 text-end"><Link className="readmore color-gray-500 text-sm" href="#"><span>Read more</span></Link></div>
                                           </div>
                                       </div>
                                   </div>

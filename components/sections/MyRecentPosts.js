@@ -1,4 +1,3 @@
-// import data from "@/utils/blogData3"
 import data from "@/utils/MyAllBlogsData"
 import Pagination from "@/components/elements/Pagination"
 import Link from "next/link"
@@ -6,8 +5,10 @@ import Link from "next/link"
 const MyRecentPosts = () => {
   return (
     <>
-    <h2 className="color-linear d-inline-block mb-10">近期文章</h2>
-    <p className="text-lg color-gray-500">以下是近期的文章</p>
+    <div className="text-left mt-70 mb-50">
+      <h2 className="color-linear d-inline-block mb-10">近期文章</h2>
+      <p className="text-lg color-gray-500">以下是近期的文章</p>
+    </div>
     <div className="mt-40 mb-50">
       <div className="row mt-50 mb-10" data-masonry="{&quot;percentPosition&quot;: true }">
         {data.slice(-6).reverse().map((item, i) => (
@@ -16,12 +17,16 @@ const MyRecentPosts = () => {
               <div className="card-image mb-20">
                 <Link className="post-type" href="#" />
                 <Link href={`/blog/${item.id}`}>
-                    <img src={`/assets/imgs/page/healthy/${item.img}`} alt="Genz" />
+                    <img src={`/assets/imgs/Cover/${item.img}`} alt="Genz" />
                 </Link>
               </div>
               <div className="card-info">
                 <div className="row">
-                  <div className="col-7"><Link className="color-gray-700 text-sm" href="/blog-archive"># Travel</Link><Link className="color-gray-700 text-sm" href="/blog-archive"># Lifestyle</Link></div>
+                  <div className="col-7">
+                    {item.tags.map(tag => (
+                      <Link className="color-gray-700 text-sm" href="/blog-archive" key={i}>#{tag} </Link>
+                    ))}
+                  </div>
                   <div className="col-5 text-end"><span className="color-gray-700 text-sm timeread">3 mins read</span></div>
                 </div><Link href={`/blog/${item.id}`}>
                   <h5 className="color-white mt-10">{item.title}</h5></Link>

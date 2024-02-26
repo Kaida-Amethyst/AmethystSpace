@@ -1,64 +1,43 @@
 import Link from "next/link";
+import { useEffect } from "react"
+import Prism from 'prismjs';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'prism-themes/themes/prism-gruvbox-dark.css';
+// import 'prism-themes/themes/prism-darcula.css';
+import 'prismjs/components/prism-python';
+import 'prismjs/components/prism-c';
+import 'prismjs/components/prism-cpp';
 
-const SingleContent = () => {
+const SingleContent = ( {metadata, content} ) => {
+
+    const renderers = {
+        h1: ({ children }) => <h1 className="color-linear mb-30">{children}</h1>,
+        h2: ({ children }) => <h2 className="color-linear mb-30">{children}</h2>,
+        h3: ({ children }) => <h3 className="color-white mt-50 mb-30">{children}</h3>,
+        h4: ({ children }) => <h4 className="color-white mt-40 mb-30">{children}</h4>,
+        p: ({ children }) => <p className="text-lg color-gray-500">{children}</p>,
+    };
+
+    useEffect(() => {
+        Prism.highlightAll();
+    }, [content]);
+
     return (
         <>
             <div className="content-detail border-gray-800">
-                <p className="text-xl color-gray-500">The fancy moon going in little artist painting. Thirty days of lavender in the dreamy light inside. Other perfect oh plants, for and again. I’ve honey feeling. Caring dreamland projects noteworthy than minimal, their it oh pretty feeling may. Include pink be.</p>
-                <div className="mt-20 mb-20">
-                    <img className="img-bdrd-16" src="assets/imgs/page/single/img.jpg" alt="Genz" />
-                </div>
-                <p className="text-lg color-gray-500 mb-50">Tortor placerat bibendum consequat sapien, facilisi facilisi pellentesque morbi. Id conse ctetur ut vitae a massa a. Lacus ut bibendum sollicitudin fusce sociis mi. Dictum volutpat praesent ornare accumsan elit venenatis. Congue sodales nunc quis ultricies odio porta. Egestas mauris placerat leo phasellu s ut sit.</p>
-                <h3 className="color-white mb-30">Use your headings</h3>
-                <p className="text-lg color-gray-500">Thirty there &amp; time wear across days, make inside on these you. Can young a really, roses blog small of song their dreamy life pretty? Because really duo living to noteworthy bloom bell. Transform clean daydreaming cute twenty process rooms cool. White white dreamy dramatically place everything although. Place out apartment afternoon whimsical kinder, little romantic joy we flowers handmade. Thirty she a studio of she whimsical projects, afternoon effect going an floated maybe.</p>
-                <div className="bg-gray-850 box-quote">
-                    <h3 className="color-gray-500">Blandit consequat feugiat sed dapibus lorem diam nibh venenatis sodales pulvinar augue adipiscing turpis nulla sit tincidunt non lacus sit amet et white dreamy dramatically place.</h3>
-                    <div className="d-inline-block mt-40">
-                        <div className="box-author">
-                            <img src="assets/imgs/page/about/author2.png" alt="Genz" />
-                            <div className="author-info">
-                                <h6 className="color-gray-700">Ronald Richards</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <h4 className="color-white mt-40 mb-30">Smaller heading</h4>
-                <div className="row">
-                    <div className="col-lg-8 mb-30">
-                        <p className="text-lg color-gray-500 mb-40">Thirty there &amp; time wear across days, make inside on these you. Can young a really, roses blog small of song their dreamy life pretty? Because really duo living to noteworthy bloom bell. Transform clean daydreaming cute twenty process rooms cool. White white dreamy dramatically place everything although.</p>
-                        <p className="text-lg color-gray-500">White white dreamy dramatically place everything although. Place out apartment afternoon whimsical kinder, little romantic joy we flowers handmade. Thirty she a studio of she whimsical projects, afternoon effect going an floated maybe.</p>
-                    </div>
-                    <div className="col-lg-4">
-                        <img className="img-bdrd-16 mb-30" src="assets/imgs/page/single/img2.jpg" alt="Genz" />
-                    </div>
-                </div>
-                <p className="text-lg color-gray-500">Tortor placerat bibendum consequat sapien, facilisi facilisi pellentesque morbi. Id consectetur ut vitae a massa a. Lacus ut bibendum sollicitudin fusce sociis mi. Dictum volutpat praesent ornare accumsan elit venenatis. Congue sodales nunc quis ultricies odio porta. Egestas mauris placerat leo phasellus ut sit.</p>
-                <div className="row mt-50">
-                    <div className="col-lg-6 gallery-left">
-                        <img className="img-bdrd-16 mb-30" src="assets/imgs/page/single/img3.jpg" alt="Genz" />
-                    </div>
-                    <div className="col-lg-6 gallery-right">
-                        <img className="img-bdrd-16 mb-20" src="assets/imgs/page/single/img4.jpg" alt="Genz" />
-                        <img className="img-bdrd-16" src="assets/imgs/page/single/img5.jpg" alt="Genz" />
-                    </div>
-                </div>
-                <p className="text-center text-lg color-gray-500">furniture in your house</p>
-                <h3 className="color-white mt-50 mb-30">Use your headings</h3>
-                <p className="text-lg color-gray-500">Thirty there &amp; time wear across days, make inside on these you. Can young a really, roses blog small of song their dreamy life pretty? Because really duo living to noteworthy bloom bell. Transform clean daydreaming cute twenty process rooms cool. White white dreamy dramatically place everything although. Place out apartment afternoon whimsical kinder, little romantic joy we flowers handmade. Thirty she a studio of she whimsical projects, afternoon effect going an floated maybe.</p>
+                <ReactMarkdown remarkPlugins={[[remarkGfm, {singleTilde:true}], [remarkMath]]} rehypePlugins={[rehypeKatex]} components={renderers}>
+                    {content}
+                </ReactMarkdown>
             </div>
             <div className="box-tags">
-                <Link className="btn btn-tags bg-gray-850 border-gray-800 mr-10 hover-up" href="/blog-archive">
-                    #Nature
+              {metadata.tags.map((tag, index) => (
+                <Link className="btn btn-tags bg-gray-850 border-gray-800 mr-10 hover-up" href="#">
+                  #{tag}
                 </Link>
-                <Link className="btn btn-tags bg-gray-850 border-gray-800 mr-10 hover-up" href="/blog-archive">
-                    #Beauty
-                </Link>
-                <Link className="btn btn-tags bg-gray-850 border-gray-800 mr-10 hover-up" href="/blog-archive">
-                    #Travel Tips
-                </Link>
-                <Link className="btn btn-tags bg-gray-850 border-gray-800 hover-up" href="/blog-archive">
-                    #House
-                </Link>
+              ))}
             </div>
             <div className="box-comments border-gray-800">
                 <h3 className="text-heading-2 color-gray-300">Comments</h3>
