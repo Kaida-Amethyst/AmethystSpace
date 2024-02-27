@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout from "@/components/layout/Layout"
-import Hero3 from "@/components/sections/Hero3"
+import Hero from "@/components/sections/Hero"
 import RecentPosts4 from "@/components/sections/RecentPosts4"
 import PopularCategories from "@/components/sections/PopularCategories"
 import MyEditorPicked from "@/components/sections/MyEditorPicked"
@@ -14,7 +14,7 @@ export default function Home() {
         <title>Digital Garden - 紫月的数字花园</title>
       </Head>
       <Layout>
-        <Hero3 />
+        <Hero />
         <div className="cover-home3">
           <div className="container">
             <div className="row">

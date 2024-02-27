@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import rehypeMathjax from 'rehype-mathjax';
 import 'prism-themes/themes/prism-gruvbox-dark.css';
 // import 'prism-themes/themes/prism-darcula.css';
 import 'prismjs/components/prism-python';

@@ -7,17 +7,12 @@ import Pagination from "@/components/elements/Pagination"
 import data from "@/utils/MyAllBlogsData"
 import { useRouter } from "next/router"
 
-export default function Technology() {
+export default function Principle() {
 
-    const TechData = data.filter((item) => 
-        item.category === "Programming" || 
-        item.category === "Application" ||
-        item.category === "Principle" ||
-        item.category === "Tools"
-    );
-    TechData .reverse();
+    const PrincipleData = data.filter((item) => item.category === "Principle");
+    PrincipleData .reverse();
 
-    const tags = TechData.map((item) => item.tags);
+    const tags = PrincipleData.map((item) => item.tags);
 
     const router = useRouter()
     const page = parseInt(router.query.page) || 1;
@@ -36,13 +31,13 @@ export default function Technology() {
                             <div className="col-xl-1" />
                             <div className="col-xl-10 col-lg-12">
                                 <PageHeader1
-                                    title={'计算机技术'}
-                                    des={'编程语言，技术原理，工具链，框架，亦或者github上有趣的项目，我在这里分享我在技术世界里的所见所知。'}
-                                    blogCount={TechData.length}
+                                    title={'计算机技术 - 技术原理'}
+                                    des={'探究底层技术原理，看看底层世界中发生了哪些有趣的事'}
+                                    blogCount={PrincipleData.length}
                                 />
                                 <div className="mt-40 mb-50">
                                     <div className="row mt-50 mb-10" data-masonry="{&quot;percentPosition&quot;: true }">
-                                        {TechData .slice(StartIndex, EndIndex).map((item, i) => (
+                                        {PrincipleData .slice(StartIndex, EndIndex).map((item, i) => (
                                             <div className="col-lg-4"  key={i}>
                                                 <div className="card-blog-1 border-gray-800 bg-gray-850 hover-up">
                                                     <div className="card-image mb-20">

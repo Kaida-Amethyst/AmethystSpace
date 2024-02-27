@@ -1,14 +1,8 @@
-# 从valarray到simd
-
-​#publish/hacky#​  ​#C++InDepth#​
-
----
-
-# valarray
+## valarray
 
 STL里面有一个古早的模块`std::valarray`​，不难猜出就是变长数组：
 
-```c++
+```cpp
 #include <iostream>
 #include <valarray>
 
@@ -20,7 +14,7 @@ int main() {
 
 不过，与常用的`vector`​相比，`valarray`​实际上是比`vector`​更加像vector的。例如，在数学上，一个vector可以直接做运算，但是在C++里面，你必须通过循环或者函数式编程。而`valarray`​却重载了一些操作符，这使得`valarray`​比`vector`​更像`vector`​，看下面的代码：
 
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <valarray>
@@ -41,7 +35,7 @@ int main() {
 
 简单列举一些`valarray`​支持的运算：
 
-```c++
+```cpp
 #include <iostream>
 #include <valarray>
 
@@ -62,7 +56,7 @@ int main() {
 
 普通的加减乘除，位运算都没有问题。除掉这种简单运算外，对于cmath中的复杂运算，STL也提供了实现：
 
-```c++
+```cpp
 #include <iostream>
 #include <valarray>
 
@@ -104,13 +98,15 @@ int main() {
 
 但是，未来ISO C++未必会对`valarray`​进一步支持，`valarray`​的底层实现仍然是变长数组。尽管在`O3`​的优化条件下，可以发现一些指令被优化成了simd指令，但是这不意味着`valarray`​原生支持simd指令。
 
-# STL中的simd
+-----
+
+## STL中的simd
 
 如果要使用simd指令，还是需要期待c++26的`std::simd`​。
 
 不过，实际上在支持c++20的版本下，我们就已经可以看到`simd`​的实验版本了，本文写成时，使用的是`gcc 13.0.1`​，将下面的代码编译成x86汇编，使用O0优化，可以看到`xmm`​这种simd寄存器已经出现了：
 
-```c++
+```cpp
 #include <array>
 #include <experimental/simd>
 #include <iostream>
@@ -171,11 +167,13 @@ main:
 
 还有一个暂时没有弄明白的地方是`vector_aligned`​，应该是与对齐有关，留待以后的博客再补充。
 
-# Computing with simd
+-----
+
+## Computing with simd
 
 可以与标量或者另一个simd做普通运算，如：
 
-```c++
+```cpp
 int main() {
   std::array<float, 4> a = {1, 2, 3, 4};
   stdx::native_simd<float> v;
@@ -200,13 +198,13 @@ int main() {
 
 例如下面的代码，将大于等于2的数加1。
 
-```c++
+```cpp
   stdx::where(v >= 2, v) += 1;
 ```
 
 当然，也支持使用一个显式的`mask_simd`​
 
-```c++
+```cpp
   stdx::native_simd_mask<float> mask;
   mask = v > 2.0f;
 
@@ -217,7 +215,7 @@ int main() {
 
 这个simd_mask也可以从内存中载入，没有问题：
 
-```c++
+```cpp
   std::array<bool, 4> b = {true, false, true, false};
   stdx::native_simd_mask<float> mask;
   mask.copy_from(b.data(), stdx::vector_aligned);
@@ -225,19 +223,12 @@ int main() {
 
 最后，尽管`simd`​数据结构可以直接索引打印，还是推荐使用`copy_to`​写回到某个稳定的数据结构中：
 
-```c++
+```cpp
 v.copy_to(a.data(), stdx::vector_aligned);
 ```
 
 # 推荐阅读
 
 1. 《Extreme C》- Chapter 3 有关ABI的部分
-2. 《A Tour of C++》，印象中提到了有关valarray和vector的旧事
+2. 《A Tour of C++》，提到了有关valarray和vector的旧事
 3. https://cppreference.com/ 有更全面的simd的文档，尽管因为是实验特性的原因，暂时还不够全面。
-4. C++标准库valarray源码剖析（Part I）
-
-# See Also
-
-* ABI
-
-‍
