@@ -38,7 +38,7 @@ const Hero = () => {
                             </div>
                             <div className="col-lg-6 text-center">
                                 <div className="banner-img no-bg">
-                                    <div className="banner-1 shape-1"><img src="assets/imgs/page/homepage3/banner-1.jpg" alt="Genz" /></div>
+                                    <div className="banner-1 shape-1"><img src="assets/imgs/author/author-ai-3.jpg" alt="Genz" /></div>
                                     <div className="banner-2 shape-2"><img src="assets/imgs/AI/cute-cat-2.png" alt="Genz" /></div>
                                 </div>
                             </div>

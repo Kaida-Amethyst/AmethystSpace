@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Prism from 'prismjs';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -12,6 +12,7 @@ import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-c';
 import 'prismjs/components/prism-cpp';
 
+
 const SingleContent = ( {metadata, content} ) => {
 
     const renderers = {
@@ -22,14 +23,18 @@ const SingleContent = ( {metadata, content} ) => {
         p: ({ children }) => <p className="text-lg color-gray-500">{children}</p>,
     };
 
+    const [isClient, setIsClient] = useState(false)
+
     useEffect(() => {
         Prism.highlightAll();
+        setIsClient(true); 
     }, [content]);
+
 
     return (
         <>
             <div className="content-detail border-gray-800">
-                <ReactMarkdown remarkPlugins={[[remarkGfm, {singleTilde:true}], [remarkMath]]} rehypePlugins={[rehypeKatex]} components={renderers}>
+                <ReactMarkdown remarkPlugins={[[remarkGfm, {singleTilde:true}], [remarkMath]]} rehypePlugins={[rehypeKatex]} components={renderers} >
                     {content}
                 </ReactMarkdown>
             </div>
