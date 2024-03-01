@@ -92,7 +92,7 @@ const Header = ({ handleOpen, handleRemove, openClass }) => {
                                     <Link className="color-gray-600 mr-10 font-xs" href="#"># Sport</Link>
                                 </div>
                             </div>
-                            <Link className="btn btn-linear d-none d-sm-inline-block hover-up hover-shadow" href="#">查看所有文章</Link>
+                            <Link className="btn btn-linear d-none d-sm-inline-block hover-up hover-shadow" href="#">Login</Link>
                         </div>
                     </div>
                 </div>

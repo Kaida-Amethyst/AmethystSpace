@@ -1,8 +1,17 @@
 import data from "@/utils/MyAllBlogsData"
 import Pagination from "@/components/elements/Pagination"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 const MyRecentPosts = () => {
+
+  const router = useRouter()
+  const page = parseInt(router.query.page) || 1;
+  const StartIndex = (page - 1) * 6;
+  const EndIndex = page * 6;
+
+  const blogData = data.slice(StartIndex, EndIndex);
+
   return (
     <>
     <div className="text-left mt-70 mb-50">
@@ -11,7 +20,7 @@ const MyRecentPosts = () => {
     </div>
     <div className="mt-40 mb-50">
       <div className="row mt-50 mb-10" data-masonry="{&quot;percentPosition&quot;: true }">
-        {data.slice(-6).reverse().map((item, i) => (
+        {blogData.reverse().map((item, i) => (
           <div className="col-lg-4"  key={i}>
             <div className="card-blog-1 border-gray-800 bg-gray-850 hover-up">
               <div className="card-image mb-20">
@@ -45,10 +54,12 @@ const MyRecentPosts = () => {
           </div>
         ))}
       </div>
-      <Pagination />
+      <div className="text-start mb-80">
+        <Link className="btn btn-linear btn-load-more wow animate__animated animate__zoomIn" href="#">查看所有文章<i className="fi-rr-arrow-small-right" /></Link></div>
     </div>
     </>
   );
 }
 
+      // <Pagination />
 export default MyRecentPosts;

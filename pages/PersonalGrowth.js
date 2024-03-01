@@ -73,7 +73,6 @@ export default function PagePersonalGrowth() {
                       <Pagination />
                   </div>
                   <div className="mb-70" />
-                  <SidebarBottom />
               </div>
           </div>
         </div>
@@ -83,3 +82,4 @@ export default function PagePersonalGrowth() {
     )
 }
 
+                  // <SidebarBottom />

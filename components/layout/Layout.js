@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
 import MobileMenu from '@/components/layout/MobileMenu'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, username }) => {
     // State to control the 'openClass' CSS class
     const [openClass, setOpenClass] = useState('');
 
@@ -28,6 +28,7 @@ const Layout = ({ children }) => {
             setOpenClass("");
         }
     }
+
     return (
         <>
             {openClass && <div className="body-overlay-1" onClick={handleRemove} />}
@@ -37,7 +38,7 @@ const Layout = ({ children }) => {
             <main className="main">
                 {children}
             </main>
-            <Footer />
+            <Footer username={username} />
             <BackToTop />
         </>
     );

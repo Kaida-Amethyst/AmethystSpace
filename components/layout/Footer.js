@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-const Footer = () => {
+const Footer = ( {username} ) => {
     return (
         <>
             <footer className="footer">
@@ -9,9 +9,9 @@ const Footer = () => {
                     <div className="footer-1 bg-gray-850 border-gray-800">
                         <div className="row">
                             <div className="col-lg-4 mb-30"><Link className="wow animate__animated animate__fadeInUp" href="/"><img src="/assets/imgs/template/logo.svg" alt="Genz" /></Link>
-                                <p className="mb-20 mt-20 text-sm color-gray-500 wow animate__animated animate__fadeInUp">When an
-                                    unknown prnoto sans took a galley and scrambled it to make specimen book not only five When
-                                    an unknown prnoto sans took a galley and scrambled it to five centurie.</p>
+                                <p className="mb-20 mt-20 text-sm color-gray-500 wow animate__animated animate__fadeInUp">
+                                  This is {username}'s digital garden.
+                                </p>
                                 <h6 className="color-white mb-5 wow animate__animated animate__fadeInUp">Address</h6>
                                 <p className="text-sm color-gray-500 wow animate__animated animate__fadeInUp">123 Main Street<br />New
                                     York, NY 10001</p>
