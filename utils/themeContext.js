@@ -13,8 +13,8 @@ export const ThemeProvider = ({ children }) => {
 
   // Apply the theme class to the document element based on isDarkMode state
   useEffect(() => {
-    document.documentElement.classList.toggle('theme-day', isDarkMode);
-    document.documentElement.classList.toggle('theme-night', !isDarkMode);
+    document.documentElement.classList.toggle('theme-night', isDarkMode);
+    document.documentElement.classList.toggle('theme-day', !isDarkMode);
     localStorage.setItem('theme', isDarkMode ? 'night' : 'day');
   }, [isDarkMode]);
 

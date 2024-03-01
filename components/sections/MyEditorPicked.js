@@ -18,7 +18,7 @@ const MyEditorPicked = () => {
                       <div className="col-lg-7">
                       {data.slice(0, 1).map((item, i) => (
                           <div className="card-blog-1 card-blog-2 hover-up wow animate__animated animate__fadeIn" data-wow-delay={0} key={i}>
-                              <div className="card-image mb-20"><Link className="post-type" href="#" /><Link href={`/blog/${item.id}`}><img src={`/assets/imgs/Cover/${item.img}`} alt="Genz" /></Link></div>
+                              <div className="card-image mb-20"><Link className="post-type" href="#" /><Link href={`/blog/${item.id}`}><img src={`${item.img}`} alt="Genz" /></Link></div>
                               <div className="card-info"><Link href={`/blog/${item.id}`}>
                                   <h4 className="color-white mt-30">{item.title}</h4></Link>
                                   <p className="mt-25 text-lg color-gray-700">{item.excerpt}</p>
@@ -44,7 +44,7 @@ const MyEditorPicked = () => {
                                   <div className="card-list-posts card-list-posts-small mb-30 wow animate__animated animate__fadeIn" data-wow-delay="0.1s">
                                       <div className="card-image hover-up">
                                           <Link href={`/blog/${item.id}`}>
-                                              <img src={`/assets/imgs/Cover/${item.img}`} alt="Genz" />
+                                              <img src={`${item.img}`} alt="Genz" />
                                           </Link>
                                       </div>
                                       <div className="card-info"><Link className="btn btn-tag bg-gray-800 hover-up mb-10 text-xs" href="/blog-archive">{item.category}</Link><Link href={`/blog/${item.id}`}>

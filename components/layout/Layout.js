@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
 import MobileMenu from '@/components/layout/MobileMenu'
 
-const Layout = ({ children, username }) => {
+const Layout = ({ children }) => {
     // State to control the 'openClass' CSS class
     const [openClass, setOpenClass] = useState('');
 
@@ -38,7 +38,7 @@ const Layout = ({ children, username }) => {
             <main className="main">
                 {children}
             </main>
-            <Footer username={username} />
+            <Footer />
             <BackToTop />
         </>
     );

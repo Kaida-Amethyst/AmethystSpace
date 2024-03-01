@@ -26,7 +26,7 @@ const MyRecentPosts = () => {
               <div className="card-image mb-20">
                 <Link className="post-type" href="#" />
                 <Link href={`/blog/${item.id}`}>
-                    <img src={`/assets/imgs/Cover/${item.img}`} alt="Genz" />
+                    <img src={`${item.img}`} alt="Genz" />
                 </Link>
               </div>
               <div className="card-info">
@@ -55,7 +55,7 @@ const MyRecentPosts = () => {
         ))}
       </div>
       <div className="text-start mb-80">
-        <Link className="btn btn-linear btn-load-more wow animate__animated animate__zoomIn" href="#">查看所有文章<i className="fi-rr-arrow-small-right" /></Link></div>
+        <Link className="btn btn-linear btn-load-more wow animate__animated animate__zoomIn" href="/blog-archive">查看所有文章<i className="fi-rr-arrow-small-right" /></Link></div>
     </div>
     </>
   );

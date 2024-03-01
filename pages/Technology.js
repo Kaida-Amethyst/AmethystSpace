@@ -48,7 +48,7 @@ export default function Technology() {
                                                     <div className="card-image mb-20">
                                                         <Link className="post-type" href="#" />
                                                         <Link href={`/blog/${item.id}`}>
-                                                            <img src={`assets/imgs/Cover/${item.img}`} alt="Genz" />
+                                                            <img src={`${item.img}`} alt="Genz" />
                                                         </Link>
                                                     </div>
                                                     <div className="card-info">

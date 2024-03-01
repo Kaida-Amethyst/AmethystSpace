@@ -61,7 +61,7 @@ const Header = ({ handleOpen, handleRemove, openClass }) => {
                                             <li><Link className="color-gray-500" href="/Programming">编程语言</Link></li>
                                             <li><Link className="color-gray-500" href="/ToolsAndFramework">框架工具</Link></li>
                                             <li><Link className="color-gray-500" href="/Principle">技术原理</Link></li>
-                                            <li><Link className="color-gray-500" href="/Application">技术生态</Link></li>
+                                            <li><Link className="color-gray-500" href="#">技术生态</Link></li>
                                         </ul>   
                                     </li>
                                     <li><Link className="color-gray-500" href="#">展览馆</Link></li>

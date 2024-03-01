@@ -7,13 +7,13 @@ import MyEditorPicked from "@/components/sections/MyEditorPicked"
 import MyRecentPosts from "@/components/sections/MyRecentPosts"
 import MyServices from "@/components/sections/MyServices"
 
-export default function Home( { username } ) {
+export default function Home( ) {
   return (
     <>
       <Head>
         <title>Digital Garden - 紫月的数字花园</title>
       </Head>
-      <Layout username={username}>
+      <Layout>
         <Hero />
         <div className="cover-home3">
           <div className="container">
@@ -30,13 +30,4 @@ export default function Home( { username } ) {
       </Layout>
     </>
   )
-}
-
-// fix username, render by serverside props
-export async function getServerSideProps() {
-    return {
-        props: {
-            username: 'default'
-        }
-    }
 }
