@@ -24,9 +24,9 @@ const MyEditorPicked = () => {
                                   <p className="mt-25 text-lg color-gray-700">{item.excerpt}</p>
                                   <div className="row align-items-center mt-45">
                                       <div className="col-7">
-                                          <div className="box-author"><img src="assets/imgs/page/homepage1/author.jpg" alt="Genz" />
+                                          <div className="box-author"><img src="assets/imgs/author/author-small-1.png" alt="Genz" />
                                               <div className="author-info">
-                                                  <h6 className="color-gray-700">Joseph</h6><span className="color-gray-700 text-sm">{item.date}</span>
+                                                  <h6 className="color-gray-700">Kaida Amethst</h6><span className="color-gray-700 text-sm">{item.date}</span>
                                               </div>
                                           </div>
                                       </div>

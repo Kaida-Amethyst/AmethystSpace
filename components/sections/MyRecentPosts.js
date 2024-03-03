@@ -5,12 +5,14 @@ import { useRouter } from "next/router"
 
 const MyRecentPosts = () => {
 
-  const router = useRouter()
-  const page = parseInt(router.query.page) || 1;
-  const StartIndex = (page - 1) * 6;
-  const EndIndex = page * 6;
+  // const router = useRouter()
+  // const page = parseInt(router.query.page) || 1;
+  // const StartIndex = (page - 1) * 6;
+  // const EndIndex = page * 6;
 
-  const blogData = data.slice(StartIndex, EndIndex);
+  // const blogData = data.slice(StartIndex, EndIndex);
+
+  const blogData = data.reverse().slice(0, 6);
 
   return (
     <>
@@ -20,7 +22,7 @@ const MyRecentPosts = () => {
     </div>
     <div className="mt-40 mb-50">
       <div className="row mt-50 mb-10" data-masonry="{&quot;percentPosition&quot;: true }">
-        {blogData.reverse().map((item, i) => (
+        {blogData.map((item, i) => (
           <div className="col-lg-4"  key={i}>
             <div className="card-blog-1 border-gray-800 bg-gray-850 hover-up">
               <div className="card-image mb-20">
@@ -41,9 +43,9 @@ const MyRecentPosts = () => {
                   <h5 className="color-white mt-10">{item.title}</h5></Link>
                 <div className="row align-items-center mt-20">
                   <div className="col-7">
-                    <div className="box-author"><img src="assets/imgs/page/homepage1/author.jpg" alt="Genz" />
+                    <div className="box-author"><img src="assets/imgs/author/author-small-1.png" alt="Genz" />
                       <div className="author-info">
-                          <h6 className="color-gray-700">Joseph</h6><span className="color-gray-700 text-sm">25 April 2023</span>
+                          <h6 className="color-gray-700">Kaida Amethyst</h6><span className="color-gray-700 text-sm">{item.date}</span>
                       </div>
                     </div>
                   </div>

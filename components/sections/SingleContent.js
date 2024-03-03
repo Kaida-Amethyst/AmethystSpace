@@ -20,7 +20,7 @@ const SingleContent = ( {metadata, content} ) => {
         h2: ({ children }) => <h2 className="color-linear mb-30">{children}</h2>,
         h3: ({ children }) => <h3 className="color-white mt-50 mb-30">{children}</h3>,
         h4: ({ children }) => <h4 className="color-white mt-40 mb-30">{children}</h4>,
-        p: ({ children }) => <p className="text-lg color-gray-500">{children}</p>,
+        p: ({ children }) => <p className="text-lg color-gray-500 mb-20">{children}</p>,
     };
 
     const [isClient, setIsClient] = useState(false)

@@ -29,7 +29,7 @@ export default function BlogPage( {metadata, content} ) {
                             <div className="row mt-50 align-items-end">
                                 <div className="col-lg-9 col-md-8">
                                     <h2 className="color-linear mb-30">{metadata.title}</h2>
-                                    <div className="box-author mb-20"><img src="assets/imgs/page/about/author2.png" alt="Genz" />
+                                    <div className="box-author mb-20"><img src="/assets/imgs/author/author-small-1.png" alt="Genz" />
                                         <div className="author-info">
                                             <h6 className="color-gray-700">Kaida Amethyst</h6><span className="color-gray-700 text-sm mr-30">{metadata.date}</span><span className="color-gray-700 text-sm">3 mins to read</span>
                                         </div>
