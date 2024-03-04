@@ -7,7 +7,7 @@ export default function Page404() {
         <>
             <Head>
                 <title>
-                    Genz - Page not found
+                    施工中
                 </title>
             </Head>
             <Layout>
@@ -23,8 +23,8 @@ export default function Page404() {
                                             </div>
                                             <div className="col-lg-6">
                                                 <div className="info-404 text-start mt-60">
-                                                    <h2 className="color-linear mb-20">Don't be spooked !</h2>
-                                                    <p className="text-xl color-gray-500">The page you’re looking for has slipped in to an unknown realm. Click the button below to go back to the homepage.</p>
+                                                    <h2 className="color-linear mb-20">施工中</h2>
+                                                    <p className="text-xl color-gray-500">暂无内容，敬请期待哦。</p>
                                                     <div className="mt-25"><Link className="btn btn-linear hover-up" href="/">Homepage</Link></div>
                                                 </div>
                                             </div>

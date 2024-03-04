@@ -12,7 +12,8 @@ const MyRecentPosts = () => {
 
   // const blogData = data.slice(StartIndex, EndIndex);
 
-  const blogData = data.reverse().slice(0, 6);
+  const blogData = data.slice(-6);
+  blogData.reverse();
 
   return (
     <>

@@ -1658,6 +1658,16 @@ input {
   color: #1CC2E7;
 }
 
+.list-disc {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.list-decimal {
+  list-style-type: decimal;
+  padding-left: 20px;
+}
+
 .card-list-posts {
   display: flex;
   width: 100%;

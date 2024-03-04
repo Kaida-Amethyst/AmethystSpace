@@ -48,9 +48,6 @@ export default function BlogPage( {metadata, content} ) {
                                 <div className="col-lg-8">
                                     <SingleContent metadata={metadata} content={content} />
                                 </div>
-                                <div className="col-lg-4">
-                                    <Sidebar2 />
-                                </div>
                             </div>
                         </div>
                     </div>
