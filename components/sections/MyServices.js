@@ -15,7 +15,7 @@ const MyServices = () => {
                         个人成长与感悟
                     </h5>
                     <p className="text-base color-gray-700">
-                        我们应该坚持的原则，行事的准则，过往生活的经验教训。
+                        我们应该坚持的原则，行事的准则，过往生活的经验教训，或者是一些学习方法之类的。
                     </p>
                 </div>
                 <div className="col-lg-4 col-md-6 mb-50 wow animate__animated animate__fadeIn" data-wow-delay="0.1s">
@@ -24,7 +24,7 @@ const MyServices = () => {
                         技术原理
                     </h5>
                     <p className="text-base color-gray-700">
-                        我们的编译器，操作系统，AI等等，到底是怎样工作的？
+                        我们的编译器，操作系统，AI等等，到底是怎样工作的？我们能自己搭建一套系统来为我们工作吗？
                     </p>
                 </div>
                 <div className="col-lg-4 col-md-6 mb-50 wow animate__animated animate__fadeIn" data-wow-delay="0.2s">
@@ -33,16 +33,16 @@ const MyServices = () => {
                         AI作品
                     </h5>
                     <p className="text-base color-gray-700">
-                        通过AI绘画，生成视频和音乐。
+                        通过AI绘画，生成视频和音乐。分享一些好用的Prompt和美妙的AI绘图。
                     </p>
                 </div>
                 <div className="col-lg-4 col-md-6 mb-50 wow animate__animated animate__fadeIn" data-wow-delay="0s">
                     <span className="item-icon bg-gray-950 icon-product" />
                     <h5 className="color-white mb-15">
-                        有趣的知识
+                        币圈
                     </h5>
                     <p className="text-base color-gray-700">
-                        有趣的英语，计算机，数学等等知识。
+                        加密货币领域发生的新鲜事。交易，技术，区块链技术等等有趣的知识。
                     </p>
                 </div>
                 <div className="col-lg-4 col-md-6 mb-50 wow animate__animated animate__fadeIn" data-wow-delay="0.1s">

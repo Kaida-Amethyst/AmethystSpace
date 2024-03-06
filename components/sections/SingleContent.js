@@ -21,8 +21,8 @@ const SingleContent = ( {metadata, content} ) => {
         h3: ({ children }) => <h3 className="color-white mt-50 mb-30">{children}</h3>,
         h4: ({ children }) => <h4 className="color-white mt-40 mb-30">{children}</h4>,
         p: ({ children }) => <p className="text-lg color-gray-500 mb-20">{children}</p>,
-        ol: ({ children }) => <ol className="list-disc mb-20 ml-20 text-lg">{children}</ol>,
-        ul: ({ children }) => <ul className="list-decimal mb-20 ml-20 text-lg">{children}</ul>,
+        ol: ({ children }) => <ol className="list-decimal mb-20 ml-20 text-lg">{children}</ol>,
+        ul: ({ children }) => <ul className="list-disc mb-20 ml-20 text-lg">{children}</ul>,
     };
 
     useEffect(() => {
