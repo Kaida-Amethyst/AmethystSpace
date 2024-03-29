@@ -1,5 +1,15 @@
 const data = [
   {
+    id: 0,
+    filename: "SmallTalk.md",
+    title: "博客开篇 - 说点闲话",
+    excerpt: "正式开通博客，首先先说一点心里话，为什么要开博客。",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Picked/2023-annual.jpg",
+    category: "PersonalGrowth",
+    date: "17 Jun 2022",
+    tags: [],
+  },
+  {
     id: 1,
     filename: "Install-gcc-on-ubuntu-from-source.md",
     title: "通过源码安装最新版gcc",
@@ -187,7 +197,7 @@ const data = [
     img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Life/cabin-1.jpg",
     category: "PersonalGrowth",
     date: "21 Dec 2023",
-    tags: ["Thoughts"],
+    tags: ["Thought"],
   },
   {
     id: 20,
@@ -197,7 +207,7 @@ const data = [
     img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Life/cabin-2.jpg",
     category: "PersonalGrowth",
     date: "28 Dec 2023",
-    tags: ["Thoughts"],
+    tags: ["Thought"],
   },
   {
     id: 21,
@@ -205,9 +215,9 @@ const data = [
     title: "认真对待投资投机",
     excerpt: "如果真的想要在市场上挣到钱，就应当将投机视为一门严肃的生意，并诚心敬业，不可以自贬身价向门外汉看齐。许多门外汉想也不想，便将投机看成单纯的赌博。  --- 利弗莫尔",
     img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Trade/1.jpg",
-    category: "PersonalGrowth",
+    category: "TradingThoughts",
     date: "2 Jan 2024",
-    tags: ["Thoughts", "Trading"],
+    tags: ["Thought"],
   },
   {
     id: 22,
@@ -215,9 +225,9 @@ const data = [
     title: "技术分析是有用的吗",
     excerpt: "技术分析的精髓在于判断市场状态，而并非如很多散户所言预测市场。许多散户想也不想，就把技术分析当作是彩票的玄学分析，这实际上仅仅是一种偏见而已。",
     img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Trade/2.jpg",
-    category: "PersonalGrowth",
+    category: "TradingThoughts",
     date: "7 Jan 2024",
-    tags: ["Thoughts", "Trading"],
+    tags: ["Thought"],
   },
   {
     id: 23,
@@ -241,13 +251,13 @@ const data = [
   },
   {
     id: 25,
-    filename:"Trading-principles.md",
-    title: "我的交易纪律",
-    excerpt: "做交易，技术和技能实际上还在其次，最重要的是要有纪律，避免凭借情绪和冲动来开单。",
-    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Trade/3.jpg",
-    category: "PersonalGrowth",
+    filename:"Stock-Masterpiece-hand-manipulator-technique.md",
+    title: "股票大作手操盘术 - 摘抄",
+    excerpt: "100年前的杰西·利弗莫尔在上世纪的美国股市赚到了上亿的财富，虽然现在的许多细节已经不再适用，但他的许多思想仍然值得现代人借鉴。",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Trade/5.jpg",
+    category: "TradingThoughts",
     date: "22 Jan 2024",
-    tags: ["Thoughts", "Trading"],
+    tags: ["Thought"],
   },
 ];
 

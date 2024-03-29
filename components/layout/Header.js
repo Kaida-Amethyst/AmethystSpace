@@ -52,16 +52,18 @@ const Header = ({ handleOpen, handleRemove, openClass }) => {
                                     <li className="has-children"><Link className="color-gray-500" href="#">文章随笔</Link>
                                         <ul className="sub-menu">
                                             <li><Link className="color-gray-500" href="/PersonalGrowth">个人成长</Link></li>
-                                            <li><Link className="color-gray-500" href="/page-404">生活纪事</Link></li>
-                                            <li><Link className="color-gray-500" href="/page-404">读书</Link></li>
                                         </ul>
                                     </li>
-                                    <li className="has-children"><Link className="color-gray-500" href="/Technology">技术博客</Link>
+                                    <li className="has-children"><Link className="color-gray-500" href="#">技术博客</Link>
                                         <ul className="sub-menu two-col">
                                             <li><Link className="color-gray-500" href="/Programming">编程语言</Link></li>
                                             <li><Link className="color-gray-500" href="/ToolsAndFramework">框架工具</Link></li>
                                             <li><Link className="color-gray-500" href="/Principle">技术原理</Link></li>
-                                            <li><Link className="color-gray-500" href="/page-404">技术生态</Link></li>
+                                        </ul>   
+                                    </li>
+                                    <li className="has-children"><Link className="color-gray-500" href="/TradingThoughts">交易系列</Link>
+                                        <ul className="sub-menu two-col">
+                                            <li><Link className="color-gray-500" href="/TradingThoughts">心得</Link></li>
                                         </ul>   
                                     </li>
                                     <li><Link className="color-gray-500" href="/page-404">展览馆</Link></li>

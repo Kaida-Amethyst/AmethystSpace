@@ -41,13 +41,13 @@ const data = [
   },
   {
     id: 25,
-    filename:"Trading-principles.md",
-    title: "我的交易纪律",
-    excerpt: "技术分析的精髓在于判断市场状态，而并非如很多散户所言预测市场。许多散户想也不想，就把技术分析当作是彩票的玄学分析，这实际上仅仅是一种偏见而已。",
-    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Trade/3.jpg",
-    category: "PersonalGrowth",
+    filename:"Stock-Masterpiece-hand-manipulator-technique.md",
+    title: "股票大作手操盘术 - 摘抄",
+    excerpt: "100年前的杰西·利弗莫尔在上世纪的美国股市赚到了上亿的财富，虽然现在的许多细节已经不再适用，但他的许多思想仍然值得现代人借鉴。",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Trade/5.jpg",
+    category: "TradingThoughts",
     date: "22 Jan 2024",
-    tags: ["Thoughts", "Trading"],
+    tags: ["Thought"],
   },
 ];
 

@@ -1,8 +1,12 @@
 import Link from "next/link"
-import data from "@/utils/MyPickedBlogData"
-// import data from "@/utils/blogData2"
+import data from "@/utils/MyAllBlogsData"
 
 const MyEditorPicked = () => {
+
+    const indexes = [0, 7, 22, 24, 25];
+    const pickedData = indexes.map((index) => data[index]);
+
+
     return (
       <>
          <h2 className="color-linear d-inline-block mb-10 wow animate__animated animate__fadeInUp">
@@ -16,7 +20,7 @@ const MyEditorPicked = () => {
               <div className="box-list-posts">
                   <div className="row">
                       <div className="col-lg-7">
-                      {data.slice(0, 1).map((item, i) => (
+                      {pickedData.slice(0, 1).map((item, i) => (
                           <div className="card-blog-1 card-blog-2 hover-up wow animate__animated animate__fadeIn" data-wow-delay={0} key={i}>
                               <div className="card-image mb-20"><Link className="post-type" href="#" /><Link href={`/blog/${item.id}`}><img src={`${item.img}`} alt="Genz" /></Link></div>
                               <div className="card-info"><Link href={`/blog/${item.id}`}>
@@ -39,7 +43,7 @@ const MyEditorPicked = () => {
                       </div>
                       <div className="col-lg-5">
                           <div className="row">
-                          {data.slice(1, 5).map((item, i) => (
+                          {pickedData.slice(1, 5).map((item, i) => (
                               <div className="col-lg-12" key={i}>
                                   <div className="card-list-posts card-list-posts-small mb-30 wow animate__animated animate__fadeIn" data-wow-delay="0.1s">
                                       <div className="card-image hover-up">

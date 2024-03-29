@@ -5,15 +5,14 @@ import SidebarBottom from "@/components/sections/SidebarBottom"
 import data from "@/utils/MyAllBlogsData"
 import BlogCards1 from "@/components/sections/BlogCards1"
 
-
-export default function PagePersonalGrowth() {
-    const personalGrowthData = data.filter((item) => item.category === "PersonalGrowth")
-    personalGrowthData.reverse()
+export default function TradingThoughts() {
+    const TradingThoughts = data.filter((item) => item.category === "TradingThoughts")
+    TradingThoughts .reverse()
 
     return (
     <>
     <Head>
-        <title>Personal Growth</title>
+        <title>交易 - 心得</title>
     </Head>
     <Layout>
       <div className="cover-home3">
@@ -22,11 +21,11 @@ export default function PagePersonalGrowth() {
               <div className="col-xl-1" />
               <div className="col-xl-10 col-lg-12">
                   <PageHeader1
-                      title={'个人成长'}
-                      des={'Become a better people.'}
-                      blogCount={personalGrowthData.length}
+                      title={'交易-心得'}
+                      des={'分享一些在加密货币交易领域中的一些心得与体会。'}
+                      blogCount={TradingThoughts .length}
                   />
-                  <BlogCards1 blogs={personalGrowthData} />
+                  <BlogCards1 blogs={TradingThoughts } />
                   <div className="mb-70" />
               </div>
           </div>
@@ -36,5 +35,3 @@ export default function PagePersonalGrowth() {
     </>
     )
 }
-
-
