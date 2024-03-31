@@ -3,8 +3,17 @@ import Head from 'next/head'
 import Layout from "@/components/layout/Layout"
 import Breadcrumb from "@/components/elements/Breadcrumb"
 import SingleContent from "@/components/sections/SingleContent"
-import Sidebar2 from "@/components/layout/Sidebar2"
 import data from "@/utils/MyAllBlogsData"
+import { remark } from 'remark';
+import html from 'remark-html';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeMathjax from 'rehype-mathjax';
+import { rehypeParse } from 'rehype-parse';
+import remarkRehype from 'remark-rehype';
+import remarkParse from 'remark-parse';
+import rehypeStringify from "rehype-stringify";
+import { unified } from 'unified';
 
 export default function BlogPage( {metadata, content} ) {
     
@@ -12,7 +21,7 @@ export default function BlogPage( {metadata, content} ) {
         <>
         <Head>
             <title>
-                Genz - Single post
+                紫月 - {metadata.title}
             </title>
         </Head>
         <Layout>
@@ -31,7 +40,9 @@ export default function BlogPage( {metadata, content} ) {
                                     <h2 className="color-linear mb-30">{metadata.title}</h2>
                                     <div className="box-author mb-20"><img src="/assets/imgs/author/author-small-1.png" alt="Genz" />
                                         <div className="author-info">
-                                            <h6 className="color-gray-700">Kaida Amethyst</h6><span className="color-gray-700 text-sm mr-30">{metadata.date}</span><span className="color-gray-700 text-sm">3 mins to read</span>
+                                            <h6 className="color-gray-700">Kaida Amethyst</h6>
+                                            <span className="color-gray-700 text-sm mr-30">{metadata.date}</span>
+                                            <span className="color-gray-700 text-sm">3 mins to read</span>
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +56,7 @@ export default function BlogPage( {metadata, content} ) {
                                 </div>
                             </div>
                             <div className="row mt-50">
-                                <div className="col-lg-8">
+                                <div className="col-lg-10">
                                     <SingleContent metadata={metadata} content={content} />
                                 </div>
                             </div>
@@ -72,10 +83,22 @@ export async function getStaticProps({ params }) {
 
     const { data: frontmatter, content } = matter(filecontent);
     const metadata = item;
+
+    const processedContent = await unified()
+        .use(remarkParse)
+        .use(remarkGfm)
+        .use(remarkMath)
+        .use(remarkRehype)
+        .use(rehypeMathjax)
+        .use(rehypeStringify)
+        .process(content);
+
+    let htmlstring = processedContent.toString();
+
     return {
         props: {
             metadata,
-            content,
+            content: htmlstring
         }
     };
 }
@@ -86,10 +109,8 @@ export async function getStaticPaths() {
             params: { id: item.id.toString() }
         }
     });
-
     return {
         paths,
         fallback: false
     };
-
 }

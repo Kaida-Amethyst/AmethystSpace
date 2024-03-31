@@ -1,16 +1,7 @@
 import data from "@/utils/MyAllBlogsData"
-import Pagination from "@/components/elements/Pagination"
 import Link from "next/link"
-import { useRouter } from "next/router"
 
 const MyRecentPosts = () => {
-
-  // const router = useRouter()
-  // const page = parseInt(router.query.page) || 1;
-  // const StartIndex = (page - 1) * 6;
-  // const EndIndex = page * 6;
-
-  // const blogData = data.slice(StartIndex, EndIndex);
 
   const blogData = data.slice(-6);
   blogData.reverse();
@@ -63,6 +54,4 @@ const MyRecentPosts = () => {
     </>
   );
 }
-
-      // <Pagination />
 export default MyRecentPosts;

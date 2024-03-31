@@ -1,8 +1,12 @@
+
+
+-----
+
 ## 函数声明与功能
 
 函数声明：
 
-```c++
+```cpp
 int isinf(float x);
 ```
 
@@ -16,7 +20,7 @@ int isinf(float x);
 
 ## Code
 
-```c++
+```cpp
 int isinf(float x) {
   int ix, t;
   ix = *(int*)&x;
@@ -37,7 +41,7 @@ int isinf(float x) {
 
 更具体的解析看下面：
 
-```c++
+```cpp
 int isinf(float x) {
   int ix, t;
   // ix获取x的十六进制形式

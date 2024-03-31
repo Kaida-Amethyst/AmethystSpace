@@ -1,3 +1,7 @@
+
+
+----
+
 ## Function Prototype
 
 ​`scalbn`​函数定义在`camth`​库中，声明如下：
@@ -20,10 +24,6 @@ double scalbn(double x, int n) {
 
 ## Thinking
 
-### 浮点数的表示法
-
-参考IEEE754 浮点数标准。
-
 ### 一般情形
 
 考虑到浮点数本身的表示就是$x\times 2^n$的形式，因此将n的加到阶码上即可。但是，很显然需要考虑一些特殊场景。
@@ -42,7 +42,7 @@ double scalbn(double x, int n) {
 
 ## Source Code
 
-```c++
+```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip>

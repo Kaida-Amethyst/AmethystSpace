@@ -3,7 +3,7 @@ import data from "@/utils/MyAllBlogsData"
 
 const MyEditorPicked = () => {
 
-    const indexes = [0, 7, 22, 24, 25];
+    const indexes = [0, 1, 10, 24, 26];
     const pickedData = indexes.map((index) => data[index]);
 
 

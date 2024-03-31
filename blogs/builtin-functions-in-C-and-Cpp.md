@@ -1,5 +1,7 @@
 
-### __builtin_expect
+-----
+
+### `__builtin_expect`
 
 ```cpp
 long __builtin_expect(long exp, long n);
@@ -13,7 +15,7 @@ long __builtin_expect(long exp, long n);
 
 以上的宏代表`ptr`并非空指针，这种宏可以用于分支预测从而提升性能。C++20之后可以使用属性`[[likely]]`​。
 
-### __builtin_bit_cast
+### `__builtin_bit_cast`
 
 用于将数原位转换为另一种类型，例如，将`0x3f800000`按位转换为`float`的1.0.
 
@@ -33,7 +35,8 @@ float x = _F(0x3f800000);  // In C++20
 
 这样一来可能需要优化支持。
 
-### __builtin_constant_p
+### `__builtin_constant_p`
+
 
 ```cpp
 bool __builtin_constant_p(exp);
@@ -59,7 +62,7 @@ int main(int argc, char *argv[]) {
 
 开启`-O3`优化后，可以看见`true`和`false`。
 
-### __builtin_dump_struct (clang only)
+### `__builtin_dump_struct` (clang only)
 
 可以用来打印结构体的值：
 

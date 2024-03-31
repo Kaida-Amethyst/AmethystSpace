@@ -24,9 +24,11 @@
     "react-dom": "18.2.0",
     "react-markdown": "^9.0.1",
     "react-mathjax2": "^0.0.2",
+    "react-remark": "^2.1.0",
     "rehype": "^13.0.1",
     "rehype-katex": "^7.0.0",
     "rehype-mathjax": "^6.0.0",
+    "rehype-parse": "^9.0.0",
     "rehype-stringify": "^10.0.0",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.0",
@@ -35,6 +37,7 @@
     "sass": "^1.56.1",
     "swiper": "^8.4.5",
     "typewriter-effect": "^2.19.0",
+    "unist-util-visit": "^5.0.0",
     "wowjs": "^1.1.3"
   }
 }

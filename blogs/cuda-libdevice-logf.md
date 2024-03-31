@@ -1,4 +1,8 @@
-cuda计算log函数与glibc的实现方法大不相同，这里对cuda实现log的源码做一个分析。有关glibc-log的源码解析，参考glibc libm - logf
+
+
+----
+
+cuda计算log函数与glibc的实现方法大不相同，这里对cuda实现log的源码做一个分析。有关glibc-log的源码解析，参考前面的博客。
 
 ## Function Prototype
 

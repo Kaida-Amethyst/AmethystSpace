@@ -11,13 +11,13 @@ void foo() {
 }
 ```
 
-也就是这种MatchIf，只有当`T`​是`char`​，`int`​，`long`​的时候才能够实例化。
+也就是这种MatchIf，只有当`T`是`char`，`int`，`long`的时候才能够实例化。
 
 当然有很多种实现方式，这里介绍的是一种稍微复杂的实现.
 
 # Typelist
 
-首先实现一个`Typelist`​，在这个`Typelist`​的基础上实现`Front`​和`PopFront`​两个Type Function。
+首先实现一个`Typelist`，在这个`Typelist`的基础上实现`Front`和`PopFront`两个Type Function。
 
 ```cpp
 template <typename... Types> struct Typelist {};
@@ -42,7 +42,7 @@ template <typename List> using PopFront = typename PopFrontT<List>::Type;
 
 # MatchIfT
 
-接着我们实现`MatchIfT`​这个Helper，这个的主要作用是，递归查看`T`​与后面的类型是否匹配，如果匹配，那么返回一个`true_type`​，否则返回一个`false_type`​：
+接着我们实现`MatchIfT`这个Helper，这个的主要作用是，递归查看`T`与后面的类型是否匹配，如果匹配，那么返回一个`true_type`，否则返回一个`false_type`：
 
 ```cpp
 template <typename T, typename List> struct MatchIfT;
@@ -63,9 +63,9 @@ template <typename T> struct MatchIfT<T, Typelist<>> {
 };
 ```
 
-但是注意这个`MatchIfT`​还不能直接使用，因为我们的期待是`bool = MathIf<...>`​这种形式，如果直接使用`MatchIfT`​，这个无论如何都会有返回，只是值要么是`true`​要么是`false`​。我们需要做的SFINAE是当match成功时有`value`​域，否则没有`value`​域从而造成代入失败。
+但是注意这个`MatchIfT`还不能直接使用，因为我们的期待是`bool = MathIf<...>`这种形式，如果直接使用`MatchIfT`，这个无论如何都会有返回，只是值要么是`true`要么是`false`。我们需要做的SFINAE是当match成功时有`value`域，否则没有`value`域从而造成代入失败。
 
-也就是说我们有一个`EnableMathIfV`​，其定义是这样：
+也就是说我们有一个`EnableMathIfV`，其定义是这样：
 
 ```cpp
 template <bool> struct EnableMatchIfV {};
@@ -75,9 +75,9 @@ template <> struct EnableMatchIfV<true> {
 };
 ```
 
-注意这里，对于`EnableMatchIfV<false>`​是没有`value`​域的。
+注意这里，对于`EnableMatchIfV<false>`是没有`value`域的。
 
-然后，对于`true_type`​和`false_type`​，实际上是可以直接进行编译期求值的，然后我们将值进行求出，接着再代入到`EnableMathIfV`​里面即可：
+然后，对于`true_type`和`false_type`，实际上是可以直接进行编译期求值的，然后我们将值进行求出，接着再代入到`EnableMathIfV`里面即可：
 
 ```cpp
 template <typename T, typename... Types>
@@ -102,8 +102,3 @@ int main() {
   baz<unsigned int>();   // ERROR!
 };
 ```
-
-# 参考阅读
-
-* [ ] 《C++ Template, The Complete Guide》第24章有关Typelist的内容。Chapter 24 - Typelist Algorithms。
-* [ ] SFINAE技巧。SFINAE。

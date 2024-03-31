@@ -48,7 +48,7 @@ const Footer = () => {
                                     可以在下方留下您的称呼和Email。
                                 </p>
                                 <div className="form-newsletters mt-15 wow animate__animated animate__fadeInUp">
-                                    <form action="#">
+                                    <form action="/">
                                         <div className="form-group">
                                             <input className="input-name border-gray-500" type="text" placeholder="Your name" />
                                         </div>

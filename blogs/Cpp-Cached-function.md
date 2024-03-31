@@ -1,4 +1,6 @@
 
+------
+
 ## Python Cache装饰器
 
 在python里面，有一个装饰器：

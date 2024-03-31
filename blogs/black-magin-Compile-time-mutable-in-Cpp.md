@@ -1,10 +1,11 @@
-注意：本篇blog中的代码涉及到Undefined Behaviour，不建议在生产环境中使用。
 
 ---
 
+注意：本篇blog中的代码涉及到Undefined Behaviour，不建议在生产环境中使用。
+
 ## Question
 
-我们想实现一个非常特殊的`constexpr`​函数，使得：
+我们想实现一个非常特殊的`constexpr`函数，使得：
 
 ```cpp
 constexpr int f();
@@ -20,7 +21,7 @@ int main() {
 
 注意在这一篇blog当中，我们只要求两次调用结果不一致，不需要更多次的调用结果不一致。
 
-注意这个要求实际上非常不容易达成，因为这里的`f`​本身就是`constexpr`​，理论上来说，这种`constexpr`​函数的返回值应该是确定的才是。这道题目要想解出，需要相当熟悉C++的编译器才行。以下是答案：
+注意这个要求实际上非常不容易达成，因为这里的`f`本身就是`constexpr`，理论上来说，这种`constexpr`函数的返回值应该是确定的才是。这道题目要想解出，需要相当熟悉C++的编译器才行。以下是答案：
 
 ---
 
@@ -79,7 +80,7 @@ struct A {
 
 注意，这里我们特意没有去实现这个函数，这是刻意为之，后面会解释。
 
-然后，我们先跳过中间的`Writer`​类，看一下第一个`is_flag_usable`​：
+然后，我们先跳过中间的`Writer`类，看一下第一个`is_flag_usable`：
 
 ```cpp
 template <class Tag, int = adl_flag(Tag{})>
@@ -88,7 +89,7 @@ constexpr bool is_flag_usable(int) {
 }
 ```
 
-这个时候，这个`is_flag_usable`​无论如何都是不能直接使用的，因为并不存在一个`adl_flag(Tag)`​函数，包括`adl_flag(A)`​。也就是说，不管怎么使用，这个`is_flag_usable`​都会出现代入失败。
+这个时候，这个`is_flag_usable`无论如何都是不能直接使用的，因为并不存在一个`adl_flag(Tag)`函数，包括`adl_flag(A)`。也就是说，不管怎么使用，这个`is_flag_usable`都会出现代入失败。
 
 接着看下面的一行：
 
@@ -97,9 +98,9 @@ template <class Tag>
 constexpr bool is_flag_usable(...) { return false; }
 ```
 
-这个的意思就是，因为前面返回`true`​的`is_flag_usable`​无论如何都会代入失败，而代入失败的函数都会经过这个函数。那么到这里，如果我们直接使用`is_flag_useable`​，不管参数是什么，都将返回`false`​。
+这个的意思就是，因为前面返回`true`的`is_flag_usable`无论如何都会代入失败，而代入失败的函数都会经过这个函数。那么到这里，如果我们直接使用`is_flag_useable`，不管参数是什么，都将返回`false`。
 
-​`is_flag_useable`​解释完之后，接着，我们来看`writer`​类：
+`is_flag_useable`解释完之后，接着，我们来看`writer`类：
 
 ```cpp
 template <class Tag> struct writer {
@@ -107,11 +108,11 @@ template <class Tag> struct writer {
 };
 ```
 
-而对于`writer`​类，它是有一个`adl_flag`​的实现的。
+而对于`writer`类，它是有一个`adl_flag`的实现的。
 
-**那么，仔细想想，在前面的**​`**A类的时候，**` ​`adl_flag`​**`是没有实现的。但是到了`**​`writer`​**`类，假如这里的`**​`Tag = A`​ **`，那么我们不就有了一个`**​`adl_flag(A)`​**`了吗？`** ​
+**那么，仔细想想，在前面的**`**A类的时候，**` `adl_flag`**`是没有实现的。但是到了`**`writer`**`类，假如这里的`**`Tag = A` **`，那么我们不就有了一个`**`adl_flag(A)`**`了吗？`** 
 
-所以，对于`f`​函数：
+所以，对于`f`函数：
 
 ```cpp
 template <class Tag = A, bool B = is_flag_usable<Tag>(0),
@@ -121,25 +122,25 @@ constexpr int f() {
 }
 ```
 
-那么，在第一次调用`f`​的时候，这里的`is_flag_usable`​因为`adl_flag(A)`​代入失败，因此恒定地返回了一个`false`​值。但是，这个函数的第三个木板参数`int = sizeof(depent_writer<B>)`​，这个模板参数本身的值没有意义，它的意义在于实例化了一个`dependent_writer`​的对象：
+那么，在第一次调用`f`的时候，这里的`is_flag_usable`因为`adl_flag(A)`代入失败，因此恒定地返回了一个`false`值。但是，这个函数的第三个木板参数`int = sizeof(depent_writer<B>)`，这个模板参数本身的值没有意义，它的意义在于实例化了一个`dependent_writer`的对象：
 
 ```cpp
 template <bool B, class Tag = A> struct dependent_writer : writer<Tag> {};
 ```
 
-这个`dependent_writer`​，是继承了writer，而这个类的一旦被实例化，`adl_flag(A)`​就会被启动，从而在第二次调用`f()`​函数的时候`f`​的模板`is_flag_usable`​会返回true。因而前后两次f函数的调用会不一致。
+这个`dependent_writer`，是继承了writer，而这个类的一旦被实例化，`adl_flag(A)`就会被启动，从而在第二次调用`f()`函数的时候`f`的模板`is_flag_usable`会返回true。因而前后两次f函数的调用会不一致。
 
-但是不仅于此，再仔细观察`f`​的第三个模板参数：
+但是不仅于此，再仔细观察`f`的第三个模板参数：
 
 ```cpp
 int = sizeof(dependent_writer<B>)
 ```
 
-会发现，这里`dependent_writer<B>`​，使用这个`B`​非常关键，因为这样以来就是强制要求编译器必须在实例化`depent_writer`​之前，先取得`B`​的确切的值。如果这里的`B`​换成其它的参数，同样也会失效。
+会发现，这里`dependent_writer<B>`，使用这个`B`非常关键，因为这样以来就是强制要求编译器必须在实例化`depent_writer`之前，先取得`B`的确切的值。如果这里的`B`换成其它的参数，同样也会失效。
 
 所以，通过这个例子其实可以猜到编译器的一些内幕：
 
-1. g++不会记录`constexpr`​函数的值，而是遇到一次计算一次。而clang++可能会记录`constexpr`​函数的值。
+1. g++不会记录`constexpr`函数的值，而是遇到一次计算一次。而clang++可能会记录`constexpr`函数的值。
 
 # More Detail
 

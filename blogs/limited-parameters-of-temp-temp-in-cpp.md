@@ -1,3 +1,6 @@
+
+---
+
 ## Motivation
 
 在模板编程的时候，我们可能会希望限定模板参数具备某些条件，例如拥有某些成员变量，或者某些成员函数。例如，我们写一个函数，这个函数接受一个容器类为模板参数，返回一个装有一个元素`(int)0`​的容器，可以这么写：
@@ -24,7 +27,7 @@ ReusltType one_element_container() {
 
 先来解决后两个问题，如果我们只需要指定容器类型，需要使用这种模板模板参数，也就是模板参数本身又是一个模板，具体的来看下面的代码：
 
-```c++
+```cpp
 template <template <typename E> typename Container>
 auto one_element_container() {
   Container<int> res;
@@ -46,7 +49,7 @@ auto one_element_container() {
 
 我们希望传入的模板参数是一个容器类。一般而言，容器类的标志是使用`allocator`​，那么前一章的代码添加一个对`Container`​模板参数类型的限定即可：
 
-```c++
+```cpp
 template <template <typename E, typename Allocator=std::allocator<E>> typename Container>
 auto one_element_container() {
   Container<int> res;
@@ -72,7 +75,7 @@ auto one_element_container() {
 
 SFINAE，全称Substitution Failure Is Not An Error，代入失败并非错误。它指的是当模板参数代入错误的时候，C++编译器不会认为这是一个错误，而是会转向下一个可能符合的模板。一个比较简单的例子：
 
-```c++
+```cpp
 template<typename T, typename = typename std::is_same_v<T, int>>
 auto foo() {
   T x = 1;
@@ -90,7 +93,7 @@ auto foo() {
 
 利用这个特性，我们可以在模板参数上来限定Container具有某些成员函数。看下面的代码：
 
-```c++
+```cpp
 template <typename Container> 
 struct has_reserve_and_push_back {
 
@@ -121,7 +124,7 @@ struct has_reserve_and_push_back {
 
 所以以`test_reserve`​为例，代码：
 
-```c++
+```cpp
   template <typename C, typename = decltype(std::declval<C>().reserve(1))>
   static std::true_type test_reserve(int);
 
@@ -135,7 +138,7 @@ struct has_reserve_and_push_back {
 
 使用的时候，只需要继续在模板参数中对`Container`​进行限制：
 
-```c++
+```cpp
 template <
     template <typename E, typename Alloc = std::allocator<int>> class Container,
     typename = std::enable_if<has_reserve_and_push_back<Container<int>>::value>>
@@ -174,7 +177,7 @@ auto one_ele()
 
 到了C++17，就可以直接使用`if constexpr`​，从而避免使用冗长的SFINAE技巧。
 
-```c++
+```cpp
 template <template <typename E, typename Alloc = std::allocator<int>>
           class Container>
 auto one_ele() {
@@ -193,7 +196,7 @@ auto one_ele() {
 
 C++17下的`if constexpr`​已经很不错了，但是仍然有一些问题，有的是否可能比较难以模块化，例如，我可能希望把这种限制进行拆分。C++20引入了concept：
 
-```c++
+```cpp
 template <typename Container>
 concept ReserveAndPushBack = requires(Container c) {
   c.reserve(1);
@@ -203,7 +206,7 @@ concept ReserveAndPushBack = requires(Container c) {
 
 声明好这种`concept`​之后，像这样去使用：
 
-```c++
+```cpp
 template <template <typename E, typename Alloc = std::allocator<int>>
           class Container>
   requires ReserveAndPushBack<Container<int>>

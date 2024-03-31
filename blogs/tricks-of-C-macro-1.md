@@ -1,6 +1,23 @@
-# C宏技巧 --- 根据宏参数个数不同采取不同动作
 
 ---
+
+我们有时会需要实现这样的功能，需要X或者等于1，或者等于2，或者等于3，等等。
+
+当然在高级语言中可以通过哈希表来实现，不过这一次来尝试用宏实现一个`UX_IN_NUMS`，具体点说，下面的代码：
+
+```c
+UX_IN_NUMS(X, 1, 2, 3)
+```
+
+会扩展成
+
+```c
+*(unsigned*)&X == 1 || *(unsigned*)&X == 2 || *(unsigned*)&X == 3
+```
+
+下面就来尝试实现这样的宏。
+
+## 做法
 
 ```cpp
 // NARG的宏参数不能超过7个，如果超过7个的话需要修改宏，在ARG_N
@@ -19,7 +36,7 @@
 连等
 
 ```cpp
-// UX_IN_NUMS(X, 1, 2, 3) --> *(unsigned*)&X == 1 || *(unsigned*)&X == 2 || *(unsigned*)&X == 3
+
 #define Concat(a, b) a ## b
 #define XConcat(a, b) Concat(a, b)
 
@@ -40,19 +57,3 @@
 // 然后DUMMY_UX_IN_NUMS(UEQ3, X, 1,2,3)变成UX_IN_NUMS3(X, 1, 2, 3)
 // 然后再扩展UX_IN_NUMS3
 ```
-
-原始想法：像使用指令一样使用宏
-
-```cpp
-#define DUMMY_ADD(Z, X, Y, ...) \
-  "add.vvr.s32  "#Z", "#X", "#Y" "USEVMR(__VA_ARGS__)";  \n\t" \
-
-#define USEVMR0() "" 
-#define USEVMR1(P) "," #P 
-#define DUMMY_USEVMR(M, ...) M(__VA_ARGS__)
-#define USEVMR(...) DUMMY_USEVMR(XConcat(USEVMR, NARG(__VA_ARGS__)), __VA_ARGS__)
-
-// 这样一来，就可以使用DUMMY_ADD(Z, X, Y)和DUMMY_ADD(Z, X, Y， P)
-```
-
-​#Unfinished#​
