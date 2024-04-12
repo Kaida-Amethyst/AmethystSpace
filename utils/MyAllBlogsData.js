@@ -299,6 +299,26 @@ const data = [
     date: "27 Jan 2024",
     tags: ["Thought"],
   },
+  {
+    id: 30,
+    filename:"Rice-Ubuntu-Linux.md",
+    title: "Ubuntu Shell美化",
+    excerpt: "颜值就是战斗力，介绍一下Ubuntu Shell的美化方案",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Computer/5.jpg",
+    category: "Tools",
+    date: "1 Apr 2024",
+    tags: ["ubuntu", "Linux"],
+  },
+  {
+    id: 31,
+    filename:"Git-Sparse-Checkout.md",
+    title: "Git稀疏检出",
+    excerpt: "如果我们工作的git仓库过大，克隆整个仓库也许没有什么必要，我们可以只克隆一部分。",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Linux/3.jpg",
+    category: "Tools",
+    date: "3 Apr 2024",
+    tags: ["Git"],
+  },
 ];
 
 export default data;
