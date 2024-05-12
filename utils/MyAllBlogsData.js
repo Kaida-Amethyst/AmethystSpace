@@ -319,6 +319,16 @@ const data = [
     date: "3 Apr 2024",
     tags: ["Git"],
   },
+  {
+    id: 32,
+    filename:"Cpp-compile-time-array.md",
+    title: "C++编译期数组",
+    excerpt: "C++中的数组是运行期的，但是我们可以通过模板元编程来实现编译期数组",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Cpp/3.jpg",
+    category: "Programming",
+    date: "8 Apr 2024",
+    tags: ["C++"],
+  },
 ];
 
 export default data;
