@@ -329,6 +329,26 @@ const data = [
     date: "8 Apr 2024",
     tags: ["C++"],
   },
+  {
+    id: 33,
+    filename:"Cpp-source-code-analysis-valarray.md",
+    title: "C++标准库源码剖析 - valarray",
+    excerpt: "C++标准库中的valarray是一个支持运算符操作的数组，这里来剖析一下它的源码",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Cpp/2.jpg",
+    category: "Programming",
+    date: "13 Apr 2024",
+    tags: ["C++"],
+  },
+  {
+    id: 34,
+    filename:"linux-useful-cli.md",
+    title: "一些有用的linux命令行工具",
+    excerpt: "介绍了bat, lsd, rg, btop, fzf等一些有用的linux命令行工具",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Linux/4.jpg",
+    category: "Tools",
+    date: "15 Apr 2024",
+    tags: ["Linux"],
+  },
 ];
 
 export default data;
