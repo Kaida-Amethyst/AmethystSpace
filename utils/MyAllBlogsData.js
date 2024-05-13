@@ -399,6 +399,26 @@ const data = [
     date: "24 Apr 2024",
     tags: ["Thought"],
   },
+  {
+    id: 40,
+    filename:"how-computer-compute-pow-function.md",
+    title: "计算机是如何计算pow函数的",
+    excerpt: "从数学的角度，解释计算机是如何计算pow函数的",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Math/6.jpg",
+    category: "Principle",
+    date: "25 Apr 2024",
+    tags: ["Math"],
+  },
+  {
+    id: 41,
+    filename:"how-computer-compute-trig-functions.md",
+    title: "计算机是如何计算三角函数的",
+    excerpt: "从数学的角度，解释计算机是如何计算三角函数的，高难预警",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Math/7.jpg",
+    category: "Principle",
+    date: "26 Apr 2024",
+    tags: ["Math"],
+  },
 ];
 
 export default data;
