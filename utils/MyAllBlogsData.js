@@ -349,6 +349,26 @@ const data = [
     date: "15 Apr 2024",
     tags: ["Linux"],
   },
+  {
+    id: 35,
+    filename:"why-c-need-structure-alignment.md",
+    title: "为什么C语言需要结构体对齐",
+    excerpt: "提供一个例子，解释为什么C语言需要结构体对齐",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Cpp/2.jpg",
+    category: "Principle",
+    date: "16 Apr 2024",
+    tags: ["C", "C++"],
+  },
+  {
+    id: 36,
+    filename:"Cpp-compile-time-insertion-sort.md",
+    title: "C++编译期插入排序",
+    excerpt: "C++中的数组是运行期的，但是我们可以通过模板元编程来实现编译期数组",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Cpp/3.jpg",
+    category: "Programming",
+    date: "18 Apr 2024",
+    tags: ["C++"],
+  },
 ];
 
 export default data;
