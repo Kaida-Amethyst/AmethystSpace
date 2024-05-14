@@ -49,8 +49,8 @@ $$
 $$
 \begin{aligned}
 &\text{let }t = x-1, \text{then } x=t+1, \text{therefore}\\
-&\ln x = \ln(t+1) = \sum_{k=1}^n\frac{(-1)^k}{k}t^k \tag{4}
-\end{aligned}
+&\ln x = \ln(t+1) = \sum_{k=1}^n\frac{(-1)^k}{k}t^k
+\end{aligned}  \tag{4}
 $$
 
 此时$x$在$x\in (0, 2)$时有比较好的精度。但是如果$x$过大的话，就会有非常大的精度下降的问题。
@@ -60,8 +60,8 @@ $$
 $$
 \begin{aligned}
 \ln x &= 2\big[ (\frac{x-1}{x+1})+\frac{1}{3}(\frac{x-1}{x+1})^3+\frac{1}{5}(\frac{x-1}{x+1})^5+\dots\big]\\
-&= 2\sum_{k=0}^{n}\frac{1}{2k+1}(\frac{x-1}{x+1})^{2k+1}\tag{5}
-\end{aligned}
+&= 2\sum_{k=0}^{n}\frac{1}{2k+1}(\frac{x-1}{x+1})^{2k+1}
+\end{aligned}  \tag{5}
 $$
 
 这个公式的推导方法如下：
@@ -93,8 +93,8 @@ $$
 $$
 \begin{aligned}
 &\ln(1-\frac{1}{x}) = -\sum_{k=1}^n\frac{1}{kx^k}\\
-\Rightarrow &-\ln(1-\frac{1}{x})=-\ln(\frac{x-1}{x})=\ln{\frac{x}{x-1}} = \sum_{k=1}^n\frac{1}{kx^k} \tag{10}
-\end{aligned}
+\Rightarrow &-\ln(1-\frac{1}{x})=-\ln(\frac{x-1}{x})=\ln{\frac{x}{x-1}} = \sum_{k=1}^n\frac{1}{kx^k}
+\end{aligned}  \tag{10}
 $$
 
 照例分析一下$x$的区间范围，不难得出：
@@ -144,8 +144,8 @@ $$
 $$
 \begin{aligned}
 &\text{1. }\frac{x+1}{x-1} \text{ 在}x\in(1,+\infin)\text{上连续。}\\
-&\text{2. }\frac{x+1}{x-1} \in(1, +\infin) \text{ 当} x\in(1,+\infin)\text{时。} \tag{14}
-\end{aligned}
+&\text{2. }\frac{x+1}{x-1} \in(1, +\infin) \text{ 当} x\in(1,+\infin)\text{时。}
+\end{aligned}  \tag{14}
 $$
 
 再来看$x\leq -1$的情形：
@@ -163,8 +163,8 @@ $$
 $$
 \begin{aligned}
 &\text{1. }\frac{x+1}{x-1} \text{ 在}x\in(-\infin,-1)\text{上连续。}\\
-&\text{2. }\frac{x+1}{x-1} \in(0,1) \text{ 当} x\in(-\infin,-1)\text{时。} \tag{15}
-\end{aligned}
+&\text{2. }\frac{x+1}{x-1} \in(0,1) \text{ 当} x\in(-\infin,-1)\text{时。}
+\end{aligned}  \tag{15}
 $$
 
 结合$(14)$和$(15)$的结论，我们得出：
@@ -179,8 +179,8 @@ $$
 \begin{aligned}
 \ln x &= 2\big[ (\frac{x-1}{x+1})+\frac{1}{3}(\frac{x-1}{x+1})^3+\frac{1}{5}(\frac{x-1}{x+1})^5+\dots\big]\\
 &= 2\sum_{k=0}^{n}\frac{1}{2k+1}(\frac{x-1}{x+1})^{2k+1} \\
-& (x\in \mathbb{R} \text{ and } x > 0) \tag{17}
-\end{aligned}
+& (x\in \mathbb{R} \text{ and } x > 0)
+\end{aligned}  \tag{17}
 $$
 
 为什么$(17)$式比$(4)$式要更好：
@@ -317,8 +317,8 @@ $$
 $$
 \begin{aligned}
 e^\mu &= 1+\mu+\frac{1}{2!}\mu^2+\frac{1}{3!}\mu^3+o(\frac{1}{4!}\mu^4) \\
-&= \sum_{k=0}^n\frac{1}{k!}\mu^k \tag{19}
-\end{aligned}
+&= \sum_{k=0}^n\frac{1}{k!}\mu^k
+\end{aligned}  \tag{19}
 $$
 
 又因为$2 = e^{\ln 2}$，因此我们有：
@@ -326,8 +326,8 @@ $$
 $$
 \begin{aligned}
 \text{let } t = \mu\ln 2 \\
-2^x = \sum_{k=0}^n\frac{1}{k!}t^k \tag{20}
-\end{aligned}
+2^x = \sum_{k=0}^n\frac{1}{k!}t^k
+\end{aligned}  \tag{20}
 $$
 
 但是这里我们再次遇到一个问题，$2^x$的泰勒展式的余项是一个指数形式，是发散的，要获得比较好的精度，上面的需要尽量靠近0才行，但是一般而言，这里的$t$可能会离0比较远，为了解决这个问题，就需要把得到的$t$缩小到0附近。但是不要用除法，而是使用减法：

@@ -10,7 +10,7 @@ with a,b : a * (4+b)
 
 用EBNF来描述上面的语法规则：
 
-```plaintext
+```
 calc   : ("with" ident ("," ident)* ":")? expr;
 expr   : term (("+"|"-") term)* ;
 term   : factor (("*"|"/") factor)* ;
@@ -25,7 +25,7 @@ number : ([0-9])+ ;
 
 ## Lexical Analysis
 
-```c++
+```cpp
 #ifndef LEXER_H
 #define LEXER_H
 
@@ -164,7 +164,7 @@ void Lexer::formToken(Token &Tok, const char * TokEnd, Token::TokenKind Kind) {
 
 然后是Parser.h，整体的思路还是递归下降。
 
-```c++
+```cpp
 #ifndef PARSER_H
 #define PARSER_H
 
@@ -221,7 +221,7 @@ public:
 
 和Parser.cpp
 
-```c++
+```cpp
 #include "Parser.h"
 
 // 总体的思路还是递归下降
@@ -309,7 +309,7 @@ Expr* Parser::parseFactor() {
 
 完成语法分析器之后，紧接着来设计语法树：这里面与前面设计的语法会稍有差别，表达式不管是乘除还是加减都是用一个`BinaryOp`来管理。`Expr`仅仅是一个父类，`Factor`继承`Expr`用来表示单节点树，`BinaryOp`继承`Expr`用来表示双节点树。
 
-```c++
+```cpp
 #ifndef AST_H
 #define AST_H
 
@@ -408,7 +408,7 @@ AST设计完成后，接着进行语义分析（Sematic analysis），calc的语
 
 Sema.h，里面只有一个Sema类，内置一个Semantic函数。
 
-```c++
+```cpp
 #ifndef SEMA_H
 #define SEMA_H
 
@@ -425,7 +425,7 @@ public:
 
 然后是Sema.cpp
 
-```c++
+```cpp
 #include "Sema.h"
 #include "llvm/ADT/StringSet.h"
 // 这里把外面的namespace给去掉了
@@ -574,7 +574,7 @@ IR是以基本块（Basic Block）组织起来的，每一个基本块都要有�
 
 CodeGen.h
 
-```c++
+```cpp
 #ifndef CODEGEN_H
 #define CODEGEN_H
 
@@ -590,7 +590,7 @@ public:
 
 CodeGen.cpp
 
-```c++
+```cpp
 #include "CodeGen.h"
 #include "llvm/ADT/StrringMap.h"
 #include "llvm/IR/IRBuilder.h"
@@ -722,7 +722,7 @@ LLVM里面有专门的用于读取命令行的库。
 
 Calc.cpp
 
-```c++
+```cpp
 #include "CodeGen.h"
 #include "Parser.h"
 #include "Sema.h"

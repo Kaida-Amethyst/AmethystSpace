@@ -419,6 +419,26 @@ const data = [
     date: "26 Apr 2024",
     tags: ["Math"],
   },
+  {
+    id: 42,
+    filename:"A-simple-smart-contract-using-ink.md",
+    title: "ink!实现一个简单的智能合约",
+    excerpt: "用ink!实现一个简单的智能合约，部署到波卡生态网络上",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Java/3.jpg",
+    category: "Programming",
+    date: "28 Apr 2024",
+    tags: ["Rust"],
+  },
+  {
+    id: 43,
+    filename:"Cpp-compile-time-quick-sort.md",
+    title: "C++编译期快速排序",
+    excerpt: "实现一个快速排序，不过要在编译期完成",
+    img: "https://blogimgs-1309485105.cos.ap-nanjing.myqcloud.com/Cover/Javascript/2.jpg",
+    category: "Programming",
+    date: "29 Apr 2024",
+    tags: ["C++"],
+  },
 ];
 
 export default data;

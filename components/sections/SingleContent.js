@@ -5,6 +5,10 @@ import 'prism-themes/themes/prism-gruvbox-dark.css';
 import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-c';
 import 'prismjs/components/prism-cpp';
+import 'prismjs/components/prism-rust';
+import 'prismjs/components/prism-cmake';
+import 'prismjs/components/prism-llvm';
+import 'prismjs/components/prism-bash';
 
 import {remark} from 'remark';
 

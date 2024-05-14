@@ -56,21 +56,22 @@ const Header = ({ handleOpen, handleRemove, openClass }) => {
                                             </li>
                                         </ul>
                                     </li>
-                                    <li className="has-children"><Link className="color-gray-500"
-                                                                       href="#">技术博客</Link>
+                                    <li className="has-children"><Link className="color-gray-500" href="#">技术博客</Link>
                                         <ul className="sub-menu two-col">
-                                            <li><Link className="color-gray-500" href="/Programming">编程语言</Link>
-                                            </li>
-                                            <li><Link className="color-gray-500"
-                                                      href="/ToolsAndFramework">框架工具</Link></li>
+                                            <li><Link className="color-gray-500" href="/Programming">编程语言</Link></li>
+                                            <li><Link className="color-gray-500" href="/ToolsAndFramework">框架工具</Link></li>
                                             <li><Link className="color-gray-500" href="/Principle">技术原理</Link></li>
                                         </ul>
                                     </li>
-                                    <li className="has-children"><Link className="color-gray-500"
-                                                                       href="/TradingThoughts">交易系列</Link>
+                                    <li className="has-children"><Link className="color-gray-500" href="#">长篇笔记</Link>
                                         <ul className="sub-menu two-col">
-                                            <li><Link className="color-gray-500" href="/TradingThoughts">思考</Link>
+                                            <li><Link className="color-gray-500" href="https://simple-c-compiler.ziyue.cafe/">动手写C编译器</Link>
                                             </li>
+                                        </ul>
+                                    </li>
+                                    <li className="has-children"><Link className="color-gray-500" href="/TradingThoughts">交易系列</Link>
+                                        <ul className="sub-menu two-col">
+                                            <li><Link className="color-gray-500" href="/TradingThoughts">思考</Link></li>
                                         </ul>
                                     </li>
                                     <li><Link className="color-gray-500" href="/page-portfolio">展览馆</Link></li>
