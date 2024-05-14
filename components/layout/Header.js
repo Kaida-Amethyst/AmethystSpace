@@ -61,12 +61,7 @@ const Header = ({ handleOpen, handleRemove, openClass }) => {
                                             <li><Link className="color-gray-500" href="/Programming">编程语言</Link></li>
                                             <li><Link className="color-gray-500" href="/ToolsAndFramework">框架工具</Link></li>
                                             <li><Link className="color-gray-500" href="/Principle">技术原理</Link></li>
-                                        </ul>
-                                    </li>
-                                    <li className="has-children"><Link className="color-gray-500" href="#">长篇笔记</Link>
-                                        <ul className="sub-menu two-col">
-                                            <li><Link className="color-gray-500" href="https://simple-c-compiler.ziyue.cafe/">动手写C编译器</Link>
-                                            </li>
+                                            <li><Link className="color-gray-500" href="/LongNotes">长篇笔记</Link></li>
                                         </ul>
                                     </li>
                                     <li className="has-children"><Link className="color-gray-500" href="/TradingThoughts">交易系列</Link>

@@ -24,20 +24,19 @@ const Footer = () => {
                                     <div className="col-6">
                                         <ul className="menu-footer">
                                             <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/blog-archive">所有文章</Link></li>
-                                            <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/blog-archive">个人成长</Link></li>
+                                            <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/PersonalGrowth">个人成长</Link></li>
                                             <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/blog-archive">生活纪事</Link></li>
                                             <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/blog-archive">读书心得</Link></li>
                                             <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/blog-archive">AI绘画</Link></li>
-                                            <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/blog-archive">照片墙</Link></li>
                                         </ul>
                                     </div>
                                     <div className="col-6">
                                         <ul className="menu-footer">
-                                            <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/blog-archive">编程语言</Link></li>
-                                            <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/blog-archive">框架工具</Link></li>
-                                            <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/blog-archive">技术原理</Link></li>
-                                            <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/blog-archive">开源应用</Link></li>
-                                            <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/blog-archive">关于我</Link></li>
+                                            <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/Programming">编程语言</Link></li>
+                                            <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/ToolsAndFramework">框架工具</Link></li>
+                                            <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/Principle">技术原理</Link></li>
+                                            <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/LongNotes">长篇笔记</Link></li>
+                                            <li className="wow animate__animated animate__fadeInUp"><Link className="color-gray-500" href="/page-404">关于我</Link></li>
                                         </ul>
                                     </div>
                                 </div>
